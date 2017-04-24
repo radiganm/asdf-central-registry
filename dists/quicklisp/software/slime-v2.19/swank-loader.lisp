@@ -336,10 +336,11 @@ If SETUP is true, load user init files and initialize some
 global variabes in SWANK."
   (when (and delete (find-package :swank))
     (delete-packages (list-swank-packages)))
-  (cond ((or (not (find-package :swank)) reload)
-         (load-swank :quiet quiet))
-        (t
-         (warn "Not reloading SWANK.  Package already exists.")))
+; MAC:  suppressed SWANK reload warning
+ ;(cond ((or (not (find-package :swank)) reload)
+ ;       (load-swank :quiet quiet))
+ ;      (t
+ ;       (warn "Not reloading SWANK.  Package already exists.")))
   (when load-contribs
     (compile-contribs :load t :quiet quiet))
   (when setup
