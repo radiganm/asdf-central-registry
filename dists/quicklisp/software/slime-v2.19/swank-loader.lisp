@@ -337,12 +337,11 @@ global variabes in SWANK."
   (when (and delete (find-package :swank))
     (delete-packages (list-swank-packages)))
 ; MAC:  suppressed SWANK reload warning
- ((or (not (find-package :swank)) reload)
-   (load-swank :quiet quiet))
- ;(cond ((or (not (find-package :swank)) reload)
- ;       (load-swank :quiet quiet))
- ;      (t
- ;       (warn "Not reloading SWANK.  Package already exists.")))
+  (cond ((or (not (find-package :swank)) reload)
+         (load-swank :quiet quiet))
+        (t
+         nil))
+;        (warn "Not reloading SWANK.  Package already exists.")))
   (when load-contribs
     (compile-contribs :load t :quiet quiet))
   (when setup
