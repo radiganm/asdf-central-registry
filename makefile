@@ -4,10 +4,10 @@
 ## All Rights Reserved
 
 .PHONY: install
-.DEFAULT_GOAL := install bootstrap
+.DEFAULT_GOAL := install bootstrap update
 
 install:
-	sudo mkdir -p /opt/asdf-central-repository && sudo cp -f ./dist /opt/asdf-central-repository
+	sudo mkdir -p /opt/asdf-central-repository && sudo cp -f ./dists /opt/asdf-central-repository
 
 boostrap:
 	./bootstrap-quicklisp.lisp
