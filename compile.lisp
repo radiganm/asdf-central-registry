@@ -1,11 +1,13 @@
 #|
-exec sbcl --noinform --load $0 --end-toplevel-options "$@"
+exec sbcl --noinform --dynamic-space-size 3000 --load $0 --end-toplevel-options "$@"
 |#
 ;; compile.lisp
 ;; Copyright 2016 Mac Radigan
 ;; All Rights Reserved
 
-  (setf sb-impl::*default-external-format* :UTF-8)
+  (setf *read-default-float-format* 'double-float)
+ ;(setf sb-impl::*default-external-format* :UTF-8)
+  (gc :full t)
 
   (require 'asdf)
   (setf asdf:*central-registry*
@@ -13,6 +15,7 @@ exec sbcl --noinform --load $0 --end-toplevel-options "$@"
      #p"/opt/asdf-central-registry/dists/quicklisp/software/oct/"
      asdf:*central-registry*))
   (probe-file "quicklisp.asd")
+ ;(mk:oos "oct" :compile)
   (asdf:oos 'asdf:load-op :oct)
 
 ;; *EOF*
