@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./bin/lisp -batch -eval '(require :asdf)' -load "rt-20101006-git/rt.asd" -eval "(asdf:oos 'asdf:load-op :rt)" -load "oct.asd" -eval "(asdf:oos 'asdf:test-op :oct-tests :force t)"
