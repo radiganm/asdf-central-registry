@@ -19,5 +19,7 @@ exit
   (ql:quickload "swank-client")
   (ql:quickload "unix-options")
   (ql:quickload "usocket")
+  (ql:quickload "cl-ppcre")
+  (ql:quickload "cl-opengl")
 
 ;; *EOF*
