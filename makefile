@@ -3,7 +3,7 @@
 ## Copyright 2016 Mac Radigan
 ## All Rights Reserved
 
-.PHONY: install compile
+.PHONY: install compile bootstrap
 .DEFAULT_GOAL := install
 
 install:
@@ -12,7 +12,7 @@ install:
 compile:
 	./compile.lisp
 
-boostrap:
+bootstrap:
 	./bootstrap-quicklisp.lisp
 
 ## *EOF*
